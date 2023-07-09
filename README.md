@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
+  <a href="http://nestjs.com/" target="blank"><img src="https://res.cloudinary.com/https-mpcsj-com/image/upload/v1688933655/Thumbnail1_xukkgs.jpg" width="200" alt="Video thumbnail" /></a>
 </p>
 
 [circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
@@ -24,7 +24,12 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Run long-running tasks with NestJS with the techniques demonstrated here
+
+- [System design primer](https://github.com/donnemartin/system-design-primer) project demonstrates how to design a backend project in a way that can scale gracefully
+- When it comes to long-running tasks and tasks that consume too much computing power, it is interesting to handle them asynchronously in a so-called, worker.
+- So an optimal approach is, to move the heavy/long-running task to a worker, and communicate with them asynchronously via queues, like Kafka, SQS or RabbitMQ.
+- For this project, I'm using RabbitMQ as the Queue message broker, but the choice is up to you and what you feel most comfortable using
 
 ## Installation
 
@@ -34,15 +39,18 @@ $ yarn install
 
 ## Running the app
 
+- **PS** For running both apps correctly, make sure that the docker engine is running on your machine.
+
 ```bash
-# development
-$ yarn run start
+# start docker-compose file
 
-# watch mode
-$ yarn run start:dev
+$ docker-compose up
 
-# production mode
-$ yarn run start:prod
+# development with watch mode
+## web app
+$ yarn start:dev
+## worker app
+$ yarn start:dev worker-backend-app
 ```
 
 ## Test
@@ -60,13 +68,12 @@ $ yarn run test:cov
 
 ## Support
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+Nest is an MIT-licensed open-source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
 
 ## Stay in touch
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+- Project author - [Mpcsj](https://twitter.com/home)
+- Youtube channel - [Mpcsj Tech Tips](https://www.youtube.com/@mpcsjtechtips)
 
 ## License
 
