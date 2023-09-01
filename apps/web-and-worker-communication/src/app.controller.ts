@@ -13,11 +13,6 @@ import { DataToWorkerDTO } from './model/data-to-worker.dto';
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get()
-  getHello(): string {
-    return this.appService.getHello();
-  }
-
   @Post('')
   @UsePipes(ValidationPipe)
   async receiveMessageFromUser(
