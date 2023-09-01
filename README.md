@@ -31,6 +31,12 @@ Run long-running tasks with NestJS with the techniques demonstrated here
 - So an optimal approach is, to move the heavy/long-running task to a worker, and communicate with them asynchronously via queues, like Kafka, SQS or RabbitMQ.
 - For this project, I'm using RabbitMQ as the Queue message broker, but the choice is up to you and what you feel most comfortable using
 
+### Flow description
+
+The following flow explains how everything works
+
+<img src="https://res.cloudinary.com/https-mpcsj-com/image/upload/v1693609899/web_and_worker_backend_app.drawio_xpkihl.png" width="400" alt="Video thumbnail" />
+
 ## Installation
 
 ```bash

@@ -10,6 +10,11 @@ export class WorkerBackendAppService {
 
   constructor(private readonly httpService: HttpService) {}
 
+  /**
+   * This is a simple function which represents a long-running task.
+   * In our case, this is pretty much a simple function which waits a few seconds and then, send the result back to the Web backend app via callback HTTP call.
+   * But it could be anything that takes many minutes, days, hours ...
+   */
   async executeLongRunningTask(data: DataToWorkerDTO) {
     this.logger.log('Execute long running task >> ', JSON.stringify(data));
     this.logger.debug(data);
@@ -17,6 +22,8 @@ export class WorkerBackendAppService {
 
     this.logger.log('process complete');
 
+    // Once our long-running task is complete, notify Web Backend app that the long running task was completed
+    // by sending an HTTP POST request to <host>/process-complete
     await this.httpService.axiosRef.post(
       `${WEB_SERVICE_URL}/process-complete`,
       data.toJson(),

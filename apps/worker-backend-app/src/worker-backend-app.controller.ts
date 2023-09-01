@@ -10,6 +10,11 @@ export class WorkerBackendAppController {
     private readonly workerBackendAppService: WorkerBackendAppService,
   ) {}
 
+  /**
+   * Once the object was sent to RabbitMQ at apps/web-and-worker-communication/src/app.service.ts at the function sendMessageToWorker.
+   * The following function is responsible to receive messages FROM RabbitMQ
+   * This is the RabbitMQ CONSUMER
+   */
   @MessagePattern(MESSAGE_PATTERNS.workerMessagePattern)
   async consumeBrokerMessage(data: any) {
     console.log('data received >> ', data);
